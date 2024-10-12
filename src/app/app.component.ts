@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'nombre-del-proyecto';
+  items?: MenuItem[];
+
+  ngOnInit() {
+    this.items = [
+      {
+        label: 'Creación',
+        icon: 'pi pi-fw pi-plus',
+        routerLink: '/creacion'
+      },
+      {
+        label: 'Listado',
+        icon: 'pi pi-fw pi-list',
+        routerLink: '/listado'
+      }
+    ];
+  }
 }

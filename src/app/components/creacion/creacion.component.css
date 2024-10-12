@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+select {
+  padding: 10px;
+  font-size: 1.2em;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  width: 70%;
+}
+
+label {
+  font-size: 1.2em;
+}
+.calendar {
+  padding: 10px;
+  font-size: 1.2em;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  width: 70%;
+  
+}

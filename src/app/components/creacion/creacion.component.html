@@ -1,0 +1,41 @@
+  <tr>
+  <td>
+    <div style="width: 482px;">
+      <label >Tipo de equipo:</label>
+      <select id="country" [(ngModel)]="selectEquipo" (change)="onChangeTipEquipo()">
+        <option *ngFor="let tipEquipo of tipoEquipo" [ngValue]="tipEquipo">{{tipEquipo.descripcion}}</option>
+      </select>
+    </div>
+  </td>
+  <td>
+    <div *ngIf="isSelect" style="margin-left: 50px;">
+      <label>Equipo:</label>
+      <select id="state" [(ngModel)]="equipoSelect">
+        <option *ngFor="let filter of filteredEquipos" [ngValue]="filter">{{filter.descripcion}}</option>
+      </select>
+    </div>
+  </td>
+  </tr>
+  <tr>
+    <td>
+      <div style=" margin-top: 35px;">
+        <label>Fecha:</label>
+        <input style="margin-left: 47px;" class="calendar"
+         type="date" 
+         id="calendar"
+         [(ngModel)]="fechaRegistro" >
+      </div>
+    </td>
+    <td>
+      <div style="margin-left: 50px;">
+        <label>Dias:</label>
+        <p-inputNumber type="number" id="inputNumber"[(ngModel)]="valorMedido"></p-inputNumber>
+      </div>
+    </td>
+  </tr>
+<tr>
+<div style="margin-top: 70px;">
+  <p-button (click)="crearHistorial()" icon="pi pi-iconName" label="Crear"></p-button>
+</div>
+</tr>    
+

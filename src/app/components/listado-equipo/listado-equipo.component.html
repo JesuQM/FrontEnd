@@ -1,0 +1,97 @@
+<p-table [value]="listado">
+    <ng-template pTemplate="header">
+        <tr>
+            <th  style="text-align: center;">
+                Descripcion
+            </th>
+            <th  style="text-align: center;">
+                Fecha de registro
+            </th>
+            <th  style="text-align: center;">
+                Dias minimos esperados
+            </th>
+            <th  style="text-align: center;">
+                Dias Maximos esperados
+            </th>
+            <th  style="text-align: center;">
+                Dias Registrados
+            </th>
+            <th style="text-align: center;">
+                Estado
+            </th>
+            <th>
+            </th>
+            <th>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-listado>
+    
+        <tr>
+            <td  style="text-align: center;">{{listado.descripcion}} </td>
+            <td  style="text-align: center;">{{listado.fechaRegistro|date: 'dd-MM-yy'}}</td>
+            <td  style="text-align: center;">{{listado.valorMinimo}} </td>
+            <td  style="text-align: center;">{{listado.valorMaximo}}</td>
+            <td  style="text-align: center;">{{listado.valorMedido}}</td>
+            <td style="text-align: center;">
+                <p-button [style]="getButtonStyle(listado.valorMedido, listado.valorMinimo, listado.valorEsperado, listado.valorMaximo)" [disabled]="true"></p-button>
+              </td>
+            <td><p-button icon="pi pi-pencil" severity="secondary"(click)="modal(listado)"></p-button> </td>
+            <td><p-button icon="pi pi-times" severity="danger"(click)="deleteHistorial(listado.id)"></p-button> </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="footer" let-yourColumnArrayVaraible>
+    </ng-template>
+    <ng-template pTemplate="summary">
+    </ng-template>
+</p-table>
+<p-dialog header="Modificar" [closable]="false" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' ,height: '600px'}" [draggable]="false" [resizable]="false">
+    <div>
+        <tr>
+            <td>
+              <div>
+                <label >Tipo de equipo:</label>
+                <select id="country" [(ngModel)]="selectEquipo" (change)="onChangeTipEquipo(selectEquipo)">
+                  <option *ngFor="let tipEquipo of tipoEquipo" [ngValue]="tipEquipo">{{tipEquipo.descripcion}}</option>
+                </select>
+              </div>
+            </td>
+            <td>
+              <div *ngIf="isSelect" style="margin-left: 50px;">
+                <label>Equipo:</label>
+                <select style="width: 336px;" [(ngModel)]="equipoSelect">
+                  <option  *ngFor="let filter of filteredEquipos" [ngValue]="filter">{{filter.descripcion}}</option>
+                </select>
+              </div>
+            </td>
+            </tr>
+            <tr>
+                <td>
+                  <div style=" margin-top: 35px;">
+                    <label>Fecha:</label>
+                    <input style="width: 235px;" class="calendar"
+                     type="date" 
+                     id="calendar"
+                     [(ngModel)]="fechaRegistro" >
+                  </div>
+                </td>
+                <td>
+                  <div style="margin-left: 50px;">
+                    <label>Dias:</label>
+                    <p-inputNumber [style]="{width: '340px'}" type="number" id="inputNumber"[(ngModel)]="valorMedido"></p-inputNumber>
+                  </div>
+                </td>
+              </tr>
+    </div>
+    <div  class="card flex flex-wrap gap-3 justify-content-center" style="margin-top: 80px;">
+        <tr>
+            <td>
+                <p-button  label="Guardar" (click)="actualizarDatos()"></p-button>
+
+            </td>
+            <td style="margin-left: 20px;">
+                <p-button  label="Cancelar" severity="danger" (click)="cerrarModal()"></p-button>  
+            </td>
+        </tr>
+     </div>
+</p-dialog>
