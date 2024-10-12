@@ -116,7 +116,9 @@ export class ListadoEquipoComponent {
       infoHistorialEquipo.equipo=this.equipoSelect?.id
       infoHistorialEquipo.tipoEquipo=this.equipoSelect?.tipoEquipo
       infoHistorialEquipo.descripcion=this.equipoSelect?.descripcion
-      infoHistorialEquipo.fechaRegistro=this.fechaRegistro  
+      let fechaSeleccionada = new Date(this.fechaRegistro);
+      let fechaUTC = new Date(fechaSeleccionada.getTime() + fechaSeleccionada.getTimezoneOffset() * 60000);
+      infoHistorialEquipo.fechaRegistro=fechaUTC
       infoHistorialEquipo.valorMedido=this.valorMedido
       this.historialEquiposService.modificarHistorial(infoHistorialEquipo).subscribe(res=>{
         Swal.close()
@@ -125,7 +127,9 @@ export class ListadoEquipoComponent {
           icon: 'success',
           confirmButtonText: 'OK'
         });
+        this.listado=[]
         this.resetForm();
+        this.ngOnInit()
       })
   }
 
@@ -141,7 +145,6 @@ export class ListadoEquipoComponent {
     this.equipoSelect = undefined;
     this.isSelect = false;
     this.valorMedido = undefined;
-    this.ngOnInit()
 
   }
   getButtonStyle(valorMedido: number, valorMinimo: number, valorEsperado: number, valorMaximo: number): any {

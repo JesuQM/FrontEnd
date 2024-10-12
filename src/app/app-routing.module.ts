@@ -6,7 +6,7 @@ import { ListadoEquipoComponent } from './components/listado-equipo/listado-equi
 const routes: Routes = [
   { path: 'creacion', component: CreacionComponent },
   { path: 'listado', component: ListadoEquipoComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' } 
+  { path: '', redirectTo: '/creacion', pathMatch: 'full' } 
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

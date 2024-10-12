@@ -1,29 +1,17 @@
-<p-table [value]="listado">
+<p-table [value]="listado" >
     <ng-template pTemplate="header">
-        <tr>
-            <th  style="text-align: center;">
-                Descripcion
-            </th>
-            <th  style="text-align: center;">
-                Fecha de registro
-            </th>
-            <th  style="text-align: center;">
-                Dias minimos esperados
-            </th>
-            <th  style="text-align: center;">
-                Dias Maximos esperados
-            </th>
-            <th  style="text-align: center;">
-                Dias Registrados
-            </th>
-            <th style="text-align: center;">
-                Estado
-            </th>
-            <th>
-            </th>
-            <th>
-            </th>
-        </tr>
+      <tr>
+        <th pSortableColumn="descripcion" style="text-align: center;">Descripcion</th>
+        <th pSortableColumn="fechaRegistro" style="text-align: center;">Fecha de registro
+          <p-sortIcon field="fechaRegistro"></p-sortIcon>
+        </th>
+        <th pSortableColumn="valorMinimo" style="text-align: center;">Dias minimos esperados</th>
+        <th pSortableColumn="valorMaximo" style="text-align: center;">Dias Maximos esperados</th>
+        <th pSortableColumn="valorMedido" style="text-align: center;">Dias Registrados</th>
+        <th style="text-align: center;">Estado</th>
+        <th></th>
+        <th></th>
+      </tr>
     </ng-template>
     <ng-template pTemplate="body" let-listado>
     

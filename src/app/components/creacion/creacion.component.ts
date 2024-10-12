@@ -69,7 +69,9 @@ crearHistorial(){
         infoHistorialEquipo.equipo=this.equipoSelect?.id
         infoHistorialEquipo.tipoEquipo=this.equipoSelect?.tipoEquipo
         infoHistorialEquipo.descripcion=this.equipoSelect?.descripcion
-        infoHistorialEquipo.fechaRegistro=this.fechaRegistro  
+        let fechaSeleccionada = new Date(this.fechaRegistro);
+      let fechaUTC = new Date(fechaSeleccionada.getTime() + fechaSeleccionada.getTimezoneOffset() * 60000);
+        infoHistorialEquipo.fechaRegistro=fechaUTC 
         infoHistorialEquipo.valorMedido=this.valorMedido
         this.historialEquipoService.crearNuevoHistorial(infoHistorialEquipo).subscribe(res=>{
           Swal.close()

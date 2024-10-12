@@ -1,7 +1,9 @@
-  <tr>
+<p style="color: red;">Los días que se deben colocar son los días en los que demoró el producto en llegar.</p>
+
+<tr>
   <td>
     <div style="width: 482px;">
-      <label >Tipo de equipo:</label>
+      <label>Tipo de equipo:</label>
       <select id="country" [(ngModel)]="selectEquipo" (change)="onChangeTipEquipo()">
         <option *ngFor="let tipEquipo of tipoEquipo" [ngValue]="tipEquipo">{{tipEquipo.descripcion}}</option>
       </select>
@@ -15,27 +17,25 @@
       </select>
     </div>
   </td>
-  </tr>
-  <tr>
-    <td>
-      <div style=" margin-top: 35px;">
-        <label>Fecha:</label>
-        <input style="margin-left: 47px;" class="calendar"
-         type="date" 
-         id="calendar"
-         [(ngModel)]="fechaRegistro" >
-      </div>
-    </td>
-    <td>
-      <div style="margin-left: 50px;">
-        <label>Dias:</label>
-        <p-inputNumber type="number" id="inputNumber"[(ngModel)]="valorMedido"></p-inputNumber>
-      </div>
-    </td>
-  </tr>
+</tr>
 <tr>
-<div style="margin-top: 70px;">
-  <p-button (click)="crearHistorial()" icon="pi pi-iconName" label="Crear"></p-button>
-</div>
-</tr>    
-
+  <td>
+    <div style="margin-top: 35px;">
+      <label>Fecha:</label>
+      <input style="margin-left: 47px;" class="calendar" type="date" id="calendar" [(ngModel)]="fechaRegistro">
+    </div>
+  </td>
+  <td>
+    <div style="margin-left: 50px;">
+      <label>Días:</label>
+      <p-inputNumber type="number" id="inputNumber" [(ngModel)]="valorMedido"></p-inputNumber>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td colspan="2">
+    <div style="margin-top: 70px;">
+      <p-button (click)="crearHistorial()" icon="pi pi-iconName" label="Crear"></p-button>
+    </div>
+  </td>
+</tr>
