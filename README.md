@@ -1,6 +1,7 @@
 # FrontEnd
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+Se recomienda tener la version 16.20.2 de node para evitar conflictos al momento de la instalacion de los paquetes 
 ## Instalacion de dependencias 
 Run `npm i`
 Run `npm i primeng@16.9.0` 
@@ -10,8 +11,11 @@ Run `npm i primeflex --save`
 
 
 ## Development server
+el proyecto se puede ejecutar utilizando 
+Run `npm  start` 
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
 
 ## Code scaffolding
 
