@@ -57,7 +57,7 @@
               </div>
             </td>
             <td>
-              <div *ngIf="isSelect" style="margin-left: 50px;">
+              <div style="margin-left: 50px;">
                 <label>Equipo:</label>
                 <select style="width: 336px;" [(ngModel)]="equipoSelect">
                   <option  *ngFor="let filter of filteredEquipos" [ngValue]="filter">{{filter.descripcion}}</option>

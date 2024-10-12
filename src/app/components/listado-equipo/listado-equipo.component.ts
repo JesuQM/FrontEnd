@@ -137,7 +137,7 @@ export class ListadoEquipoComponent {
     this.listado=[]
     this.fechaRegistro = new Date();
     this.selectEquipo = [];
-    this.filteredEquipos = [];
+    //this.filteredEquipos = [];
     this.equipoSelect = undefined;
     this.isSelect = false;
     this.valorMedido = undefined;
