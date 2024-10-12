@@ -135,7 +135,19 @@ export class ListadoEquipoComponent {
 
   }
   }
-  
+  cargardatos(){
+     this.historialEquiposService.getAllHistorial().subscribe(data=>{
+      this.listHistorial=data;
+    })
+    this.equiposService.getAllEquipo().subscribe(data=>{
+      this.listEquipos=data
+      this.equipo=data
+      this.combineData()
+    })
+     this.tipoEquipoService.getAllTipoEquipo().subscribe(data=>{
+      this.tipoEquipo=data
+    })
+  }
 
   resetForm() {
     this.listado=[]
@@ -181,12 +193,18 @@ export class ListadoEquipoComponent {
               icon: 'success',
               confirmButtonText: 'OK'
             });
-            this.resetForm();
+            if (result.isConfirmed) {
+              window.location.reload();   
+            }
+
         })    
+        this.listado=[]
+        this.cargardatos();
         
       } else if (result.dismiss === Swal.DismissReason.cancel) {
-          Swal.close()
-          this.resetForm();
+        
+   
+          
       }
     });
   
